@@ -26,3 +26,11 @@ Bufio has methods that makes easier to work with data, such ReadLine and ReadByt
 3. Read Byte - `\r`
 4. Read Byte - `\n`
 ...
+
+## Handling concurrency
+
+RWMutex is used to avoid multiple threads writing in same map for SET and HSET commands.
+
+Everytime we try to SET a new value, we use LOCK to avoid other threads to modify the map we are currently using.
+
+Then we write the value and UNLOCK it so next time we try to set, the process is repeated.
