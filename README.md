@@ -34,3 +34,7 @@ RWMutex is used to avoid multiple threads writing in same map for SET and HSET c
 Everytime we try to SET a new value, we use LOCK to avoid other threads to modify the map we are currently using.
 
 Then we write the value and UNLOCK it so next time we try to set, the process is repeated.
+
+## Persisting Data
+
+Using AOF, we'll record each command in the file as RESP. When server restart, we'll read all the RESP commands from the AOF file and execute them in memory
