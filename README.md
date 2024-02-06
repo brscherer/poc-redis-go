@@ -4,6 +4,11 @@ We'll use same port that redis, so first thing is to stop redis:
 
 ```brew services stop redis```
 
+Running server:
+
+`go run *.go`
+`redis-cli`
+
 
 ## RESP (Redis Serialization Protocol)
 
